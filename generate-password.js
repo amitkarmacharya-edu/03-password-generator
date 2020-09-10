@@ -12,7 +12,7 @@ const characterSet = {
     // all numbers
     numbers: "0123456789",
     // all special characters, list provided by the instructors
-    specialCharacters: "@%+\/'!#$^?:,)(}{][~-_."
+    specialCharacters: "@%+\\/'!#$^?:,)(}{][~-_."
 
 };
 
