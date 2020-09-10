@@ -20,10 +20,47 @@ const characterSet = {
 // Collect User Data, View
 function userInput() {
     
-    // will store user choice
-    var userChoice;
+
+    // get user input
+    // get the form element
+    var formInput = document.getElementById('formInput');
+
+    // store users selection
+    var includeLower = formInput.lower.checked;
+    var includeUpper = formInput.upper.checked;
+    var includeNumbers = formInput.number.checked;
+    var includeSymbols = formInput.symbols.checked;
+    var passwordLength = parseInt(formInput.passwordLength.value);
+
+    // if user doesn't select any option, default to lower case
+    if(!(includeLower || includeUpper || includeNumbers || includeSymbols)) {
+        includeLower = true;
+    } 
+
+    // store all options
+    var option = "";
+    if(includeLower) {
+        option += characterSet.lowerCase;
+    }
+    if(includeUpper) {
+        option += characterSet.upper;
+    }
+    if(includeNumbers) {
+        option += characterSet.numbers;
+    }
+    if(includeSymbols) {
+        option += characterSet.specialCharacters;
+    }
 
 
+    // create object userChoice
+    var userChoice = {
+        length: passwordLength,
+        allCharacterSet: option
+    };
+    
+    console.log(userChoice.length);
+    console.log(userChoice.allCharacterSet);
 
     return userChoice;
 }
@@ -34,10 +71,10 @@ function userInput() {
 export function generatePassword() {
 
     // will store user password, random password
-    var password;
+    var password="";
 
     // get user Input, Character Set and the length of the password
-    var userchoice = userInput();
+    var userChoice = userInput();
 
     // get the length of the password
     var pwdLength = userChoice.length;
@@ -68,7 +105,7 @@ export function generatePassword() {
     // because we didn't pick from each charactre set individually, we don't have a pattern like
     // lowercaseRandom + upperCaseRandom + numberRandom + specialCharacterrandom 
 
-    return Password;
+    return password;
 }
 
 

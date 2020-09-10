@@ -4,32 +4,111 @@
     <!-- mobile responsive -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <!-- website title -->
     <title>Password Generator</title>
+
+    <!-- linked style sheet -->
     <link rel="stylesheet" href="style.css" />
+
   </head>
+
   <body>
+
+    <!-- wrapper div, creates padding around window -->
     <div class="wrapper">
+
+      <!-- header -->
       <header>
+
+        <!-- heading -->
         <h1>Password Generator</h1>
+
       </header>
-      <div class="card">
-        <div class="card-header">
-          <h2>Generate a Password</h2>
-        </div>
-        <div class="card-body">
-          <textarea
-            readonly
-            id="password"
-            placeholder="Your Secure Password"
-            aria-label="Generated Password"
-          ></textarea>
-        </div>
-        <div class="card-footer">
-          <button id="generate" class="btn">Generate Password</button>
-        </div>
-      </div>
+
+      <!-- main content -->
+      <main>
+
+        <!-- collects user input with forms -->
+        <section>
+          
+          <!-- hidden heading -->
+          <h3 hidden>Create Your Password set</h3>
+
+          <!-- forms stores all the user inputs -->
+          <form class="card" id="formInput" action="#">
+
+            <p>
+              <!-- length of the password -->
+              <label for="passwordLength">Specify the length of the password</label>
+              <p>
+                <input id="pwd-range" oninput="document.getElementById('display-range').textContent= this.value" type="range" name="passwordLength" min="8" max="128" id="pwdLength">
+                <span id="display-range">68</span>
+              </p>
+            </p>
+
+            <p>
+              <label for="lower">Include Lower Case Alphabets</label>
+              <input type="checkbox" name="lower" >
+            </p>
+
+            <p>
+              <label for="upperr">Include Upper Case Alphabets</label>
+              <input type="checkbox" name="upper" >
+            </p>
+
+            <p>
+              <label for="number">Include Numbers </label>
+              <input type="checkbox" name="number" >
+            </p>
+
+            <p>
+              <label for="symbols">Include Special Characters</label>
+              <input type="checkbox" name="symbols" >
+            </p>
+
+            <p class="text-default">Default : Lower Case Alphabet</p>
+
+          </form>
+
+        </section>
+
+        <section>
+
+          <div class="card">
+
+            <div class="card-header">
+              <h2>Generate a Password</h2>
+            </div>
+
+            <div class="card-body">
+
+              <textarea
+                readonly
+                id="password"
+                placeholder="Your Secure Password"
+                aria-label="Generated Password"
+              ></textarea>
+
+            </div>
+
+            <div class="card-footer">
+              <button id="generate" class="btn">Generate Password</button>
+            </div>
+
+          </div>
+
+        </section>
+
+      </main>
+
     </div>
+
+    <!-- linked javscript file -->
     <script type="module" src="./script.js"></script>
+
   </body>
+
 </html>

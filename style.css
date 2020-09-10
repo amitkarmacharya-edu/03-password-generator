@@ -72,6 +72,12 @@ header {
   clear: both;
 }
 
+.text-default {
+  color: gray;
+  font-size: 13px;
+  text-align: center;
+}
+
 .btn {
   border: none;
   background-color: hsl(360, 91%, 36%);
