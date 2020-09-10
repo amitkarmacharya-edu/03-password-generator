@@ -1,6 +1,22 @@
 
+// import the generate-password file, which has all the logic
+import {generatePassword} from "./generate-password.js";
 
-// create data structure to store the character set and random generation function
-// MODEL
+// Assignment Code
+var generateBtn = document.querySelector("#generate");
 
-conts 
+// Write password to the #password input
+function writePassword() {
+    var password = generatePassword();
+    // console.log
+    console.log(password);
+
+    var passwordText = document.querySelector("#password");
+
+    passwordText.value = password;
+    console.log(password.length);
+
+}
+
+// Add event listener to generate button
+generateBtn.addEventListener("click", writePassword);
